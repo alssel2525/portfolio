@@ -13,11 +13,15 @@ const Container = styled.header`
 	top: 0;
 	left: 0;
 	background: #ffffff;
-
-	img {
-		height: 50px;
+	
+	> a {
 		margin-right: 20px;
+		
+		> img {
+			height: 50px;
+		}
 	}
+
 
 	> ul {
 		display: flex;
@@ -32,23 +36,22 @@ const Container = styled.header`
 			font-weight: 800;
 			cursor: pointer;
 			transition: 0.3s;
-			
+
 			::after {
 				content: "";
 				width: 0;
 				height: 5px;
 				position: absolute;
 				bottom: -5px;
-				left: 0;
-				right: 0;
-				margin: auto;
+				left: calc((100% - 50px) / 2);
+				margin: 0 auto;
 				background: #e5e525;
 				transition: 0.3s;
 			}
-			
+
 			:hover {
 				color: #333333;
-				
+
 				::after {
 					width: 50px;
 				}
