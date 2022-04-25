@@ -13,6 +13,7 @@ const Container = styled.header`
 	top: 0;
 	left: 0;
 	background: #ffffff;
+	z-index: 1;
 	
 	> a {
 		margin-right: 20px;
