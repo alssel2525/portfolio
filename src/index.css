@@ -27,17 +27,17 @@ a {
 @font-face {
 	font-family: "GmarketSans";
 	font-weight: 100;
-	src: url("./fonts/GmarketSansTTFLight.ttf") format("truetype");
+	src: local("G마켓 산스 TTF Light"), url("./fonts/GmarketSansTTFLight.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "GmarketSans";
 	font-weight: 500;
-	src: url("./fonts/GmarketSansTTFMedium.ttf") format("truetype");
+	src: local("G마켓 산스 TTF Medium"), url("./fonts/GmarketSansTTFMedium.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "GmarketSans";
 	font-weight: 800;
-	src: url("./fonts/GmarketSansTTFBold.ttf") format("truetype");
+	src: local("G마켓 산스 TTF Bold"), url("./fonts/GmarketSansTTFBold.ttf") format("truetype");
 }
