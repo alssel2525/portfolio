@@ -6,7 +6,7 @@ const Container = styled.div`
 	position: relative;
 	text-align: left;
 
-	.title {
+	> .title {
 		width: max-content;
 		margin-bottom: 50px;
 		position: relative;
