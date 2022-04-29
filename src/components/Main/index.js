@@ -3,15 +3,15 @@ import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 
-const index = () => {
+const Main = (props) => {
 	return (
 		<main>
 			<Visual/>
-			<About/>
-			<Projects/>
-			<Contact/>
+			<About refs={props.refs.current[0]}/>
+			<Projects refs={props.refs.current[1]}/>
+			<Contact refs={props.refs.current[2]}/>
 		</main>
 	)
 };
 
-export default index;
+export default Main;

@@ -6,15 +6,15 @@ const ProfileAnimation = keyframes`
 	0% {
 		transform: rotate(0deg);
 	}
-	
+
 	50% {
 		transform: rotate(5deg);
 	}
-	
+
 	60% {
 		transform: rotate(-2.5deg);
 	}
-	
+
 	100% {
 		transform: rotate(0deg);
 	}
@@ -33,10 +33,10 @@ const Container = styled.header`
 	left: 0;
 	background: #ffffff;
 	z-index: 1;
-	
+
 	> a {
 		margin-right: 20px;
-		
+
 		> img {
 			height: 50px;
 			transform-origin: right bottom;
@@ -85,18 +85,26 @@ const Container = styled.header`
 	}
 `;
 
-const Header = () => {
+const Header = (props) => {
+	const ScrollToSection = (index) => {
+		window.scrollTo({
+			top: props.refs.current[index].current.getBoundingClientRect().top + window.scrollY - 110,
+			behavior: "smooth",
+		})
+	}
+	
+	
 	return (
 		<Container>
 			<a href={"/#"}><img src={profile} alt={"방민"}/></a>
 			<ul>
-				<li>
+				<li onClick={() => ScrollToSection(0)}>
 					About
 				</li>
-				<li>
+				<li onClick={() => ScrollToSection(1)}>
 					Projects
 				</li>
-				<li>
+				<li onClick={() => ScrollToSection(2)}>
 					Contact
 				</li>
 			</ul>

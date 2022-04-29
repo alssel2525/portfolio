@@ -29,7 +29,7 @@ const Container = styled.div`
 
 const Section = (props) => {
 	return (
-		<Container>
+		<Container ref={props.refs}>
 			<div className={"title"}>{props.title}</div>
 			{props.children}
 		</Container>

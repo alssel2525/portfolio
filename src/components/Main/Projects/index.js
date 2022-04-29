@@ -5,9 +5,9 @@ import PageButton from "./Project/PageButton";
 import TranslatingImage from "./Project/TranslatingImage";
 
 
-const Projects = () => {
+const Projects = (props) => {
 	return (
-		<Section title={"Projects"}>
+		<Section title={"Projects"} refs={props.refs}>
 			<Project>
 				<TranslatingImage src={djbm} alt={"대전 바이오메디컬 규제자유특구 클론 코딩"}/>
 				<div className={"content"}>

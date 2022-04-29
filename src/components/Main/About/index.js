@@ -48,9 +48,10 @@ const Timeline = styled.div`
 	}
 `;
 
-const About = () => {
+const About = (props) => {
+	
 	return (
-		<Section title={"About"}>
+		<Section title={"About"} refs={props.refs}>
 			<div style={{lineHeight: 1.6, fontSize: "24px", fontWeight: "100", letterSpacing: "-0.05em"}}>
 				대학 생활 중 크게 2번의 공모전 활동에 참여했습니다.<br/>
 				결과물을 시연하고 설명해보면서 느낀 점은 100마디 단어보다 서비스 그 자체의 디자인과 UI/UX가 더 많은 뜻을 전한다는 것이었습니다.<br/>
