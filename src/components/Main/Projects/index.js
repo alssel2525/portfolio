@@ -1,8 +1,9 @@
 import Section from "../Section";
 import Project from "./Project";
-import djbm from "../../../images/djbm.jpg";
 import PageButton from "./Project/PageButton";
 import TranslatingImage from "./Project/TranslatingImage";
+import djbm from "../../../images/djbm.jpg";
+import portfolio from "../../../images/portfolio.jpg";
 
 
 const Projects = (props) => {
@@ -25,7 +26,7 @@ const Projects = (props) => {
 				</div>
 			</Project>
 			<Project>
-				<TranslatingImage src={djbm} alt={"포트폴리오"}/>
+				<TranslatingImage src={portfolio} alt={"포트폴리오"}/>
 				<div className={"content"}>
 					<div className={"title"}>포트폴리오</div>
 					<div className={"subtitle"}>개인 포트폴리오 사이트입니다.</div>
