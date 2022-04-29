@@ -33,7 +33,7 @@ const Container = styled.a`
 	
 	:hover {
 		transform: translateY(-5px);
-		box-shadow: #333333 0 2px 5px;
+		box-shadow: #2525e5 0 5px 5px;
 	}
 `;
 

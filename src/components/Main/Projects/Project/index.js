@@ -14,7 +14,7 @@ const Container = styled.div`
 		width: 812px;
 		height: 450px;
 		object-fit: cover;
-		box-shadow: #333333 0 0 7px;
+		box-shadow: #333333 0 0 10px;
 	}
 
 	> .content {
