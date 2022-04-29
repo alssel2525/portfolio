@@ -1,5 +1,17 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import wing from "../../../images/wing.svg";
+
+const WingKeyframes = keyframes`
+	from {
+		opacity: 0;
+		transform: rotateZ(50deg);
+	}
+	
+	to {
+		opacity: 1;
+		transform: rotateZ(10deg);
+	}
+`
 
 const Container = styled.div`
 	width: 100vw;
@@ -44,19 +56,11 @@ const Container = styled.div`
 		right: 280px;
 		top: 0;
 		bottom: 0;
-		opacity: 0;
-		transform: rotate(50deg);
 		transform-origin: 0 50%;
 		transition: 1s ease;
 		background-image: url(${wing});
 		background-repeat: no-repeat;
-	}
-
-	:hover {
-		::after {
-			opacity: 1;
-			transform: rotate(10deg);
-		}
+		animation: ${WingKeyframes} 1s ease 1 forwards;
 	}
 `;
 
