@@ -2,6 +2,7 @@ import styled, {css} from "styled-components";
 import github from "../../../../images/GitHub-Mark-Light-32px.png";
 import globe from "../../../../images/globe.png";
 
+
 const Container = styled.a`
 	width: 150px;
 	height: 50px;
@@ -31,7 +32,8 @@ const Container = styled.a`
 	}
 	
 	:hover {
-		transform: translateY(-10px);
+		transform: translateY(-5px);
+		box-shadow: #333333 0 2px 5px;
 	}
 `;
 
