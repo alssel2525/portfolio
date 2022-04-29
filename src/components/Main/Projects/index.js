@@ -24,6 +24,21 @@ const Projects = () => {
 					</div>
 				</div>
 			</Project>
+			<Project>
+				<TranslatingImage src={djbm} alt={"포트폴리오"}/>
+				<div className={"content"}>
+					<div className={"title"}>포트폴리오</div>
+					<div className={"subtitle"}>개인 포트폴리오 사이트입니다.</div>
+					<div className={"description"}>
+						styled-components로 컴포넌트별 디자인<br/>
+						커서 위치에 따른 이미지 애니메이션 구현<br/>
+						Github Pages로 배포</div>
+					<div className={"buttons"}>
+						<PageButton link={"https://alssel2525.github.io/djbm_clone/"}>Link</PageButton>
+						<PageButton link={"https://github.com/alssel2525/djbm_clone"} type={"github"}>Github</PageButton>
+					</div>
+				</div>
+			</Project>
 		</Section>
 	)
 };
