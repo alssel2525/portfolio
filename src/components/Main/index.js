@@ -1,6 +1,7 @@
 import Visual from "./Visual";
 import About from "./About";
 import Projects from "./Projects";
+import Contact from "./Contact";
 
 const index = () => {
 	return (
@@ -8,6 +9,7 @@ const index = () => {
 			<Visual/>
 			<About/>
 			<Projects/>
+			<Contact/>
 		</main>
 	)
 };
