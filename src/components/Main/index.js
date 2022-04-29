@@ -6,7 +6,7 @@ import Contact from "./Contact";
 const Main = (props) => {
 	return (
 		<main>
-			<Visual/>
+			<Visual refs={props.refs}/>
 			<About refs={props.refs.current[0]}/>
 			<Projects refs={props.refs.current[1]}/>
 			<Contact refs={props.refs.current[2]}/>

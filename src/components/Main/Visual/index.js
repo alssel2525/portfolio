@@ -1,5 +1,6 @@
 import styled, {keyframes} from "styled-components";
 import wing from "../../../images/wing.svg";
+import arrow_down from "../../../images/arrow_down.png";
 
 const WingKeyframes = keyframes`
 	from {
@@ -45,6 +46,16 @@ const Container = styled.div`
 		position: absolute;
 		left: 0;
 		bottom: 0;
+		
+		> img {
+			height: 60px;
+			cursor: pointer;
+			transition: 0.3s;
+			
+			:hover {
+				transform: translateY(-10px);
+			}
+		}
 	}
 
 	::after {
@@ -64,7 +75,14 @@ const Container = styled.div`
 	}
 `;
 
-const Visual = () => {
+const Visual = (props) => {
+	const onArrowClick = () => {
+		window.scrollTo({
+			top: props.refs.current[0].current.getBoundingClientRect().top + window.scrollY - 110,
+			behavior: "smooth",
+		});
+	}
+	
 	return (
 		<Container>
 			<div className={"text_container"}>
@@ -79,7 +97,7 @@ const Visual = () => {
 				</div>
 			</div>
 			<div className={"bottom"}>
-			
+				<img src={arrow_down} alt={"다음 페이지로 스크롤하기"} onClick={onArrowClick}/>
 			</div>
 		</Container>
 	)

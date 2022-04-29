@@ -1,24 +1,6 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import profile from "../../images/프사.svg";
 
-
-const ProfileAnimation = keyframes`
-	0% {
-		transform: rotate(0deg);
-	}
-
-	50% {
-		transform: rotate(5deg);
-	}
-
-	60% {
-		transform: rotate(-2.5deg);
-	}
-
-	100% {
-		transform: rotate(0deg);
-	}
-`;
 
 const Container = styled.header`
 	width: 100vw;
@@ -34,19 +16,12 @@ const Container = styled.header`
 	background: #ffffff;
 	z-index: 1;
 
-	> a {
+	> img {
 		margin-right: 20px;
-
-		> img {
-			height: 50px;
-			transform-origin: right bottom;
-		}
-
-		:hover > img {
-			animation: ${ProfileAnimation} 1s linear infinite;
-		}
+		height: 50px;
+		transform-origin: right bottom;
+		cursor: pointer;
 	}
-
 
 	> ul {
 		display: flex;
@@ -93,10 +68,17 @@ const Header = (props) => {
 		})
 	}
 	
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		})
+	}
+	
 	
 	return (
 		<Container>
-			<a href={"/#"}><img src={profile} alt={"방민"}/></a>
+			<img src={profile} alt={"방민"} onClick={scrollToTop}/>
 			<ul>
 				<li onClick={() => ScrollToSection(0)}>
 					About
