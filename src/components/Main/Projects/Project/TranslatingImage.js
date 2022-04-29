@@ -28,7 +28,10 @@ const TranslatingImage = (props) => {
 	}, []);
 	
 	return (
-		<img {...props} alt={props.alt} ref={ref} onMouseMove={updateRotate} onMouseLeave={resetRotate}
+		<img {...props} alt={props.alt} ref={ref}
+			onMouseEnter={() => setBoundingClientRect(ref.current.getBoundingClientRect())}
+			onMouseMove={updateRotate}
+			onMouseLeave={resetRotate}
 			style={{
 				transform: `perspective(2000px) rotateX(${rotation[0]}deg) rotateY(${rotation[1]}deg)`,
 				transition: "0.3s",
