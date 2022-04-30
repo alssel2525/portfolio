@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
 
 const Container = styled.div`
 	width: 1364px;
@@ -9,7 +10,16 @@ const Container = styled.div`
 	justify-content: left;
 	align-items: flex-start;
 	position: relative;
-
+	transition: 0.3s;
+	
+	opacity: 0;
+	transform: translateY(20px);
+	
+	${props => props.isIntersecting === true && css`
+		opacity: 1;
+		transform: translateY(0);
+	`}
+	
 	> img {
 		width: 812px;
 		height: 450px;
@@ -57,8 +67,13 @@ const Container = styled.div`
 `;
 
 const Project = (props) => {
+	const [ref, isIntersecting] = useIntersectionObserver({
+		threshold: 0.5,
+		rootMargin: "100% 0px 0px 0px",
+	});
+	
 	return (
-		<Container>
+		<Container ref={ref} isIntersecting={isIntersecting}>
 			{props.children}
 		</Container>
 	)
