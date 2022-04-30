@@ -1,6 +1,16 @@
-import styled, {css} from "styled-components";
+import styled, {css, keyframes} from "styled-components";
 import Section from "../Section";
 
+
+const MovingUpDownKeyframes = keyframes`
+	from {}
+	
+	50% {
+		transform: translateY(-5px);
+	}
+	
+	to {}
+`
 
 const TimeEvent = styled.div`
 	position: relative;
@@ -36,11 +46,16 @@ const TimeEvent = styled.div`
 				cursor: pointer;
 
 				::before {
+					animation: ${MovingUpDownKeyframes} 2s infinite ease forwards running;
 					border-color: #2525e5;
 				}
 
 				:hover {
 					transform: translateY(-5px);
+					
+					::before {
+						animation-play-state: paused;
+					}
 				}
 			`
 		}
