@@ -47,7 +47,10 @@ const TimeEvent = styled.div`
 
 				::before {
 					animation: ${MovingUpDownKeyframes} 2s infinite ease forwards running;
-					border-color: #2525e5;
+					border: 20px solid transparent;
+					background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(25deg, #6525e5, #2525e5);
+					background-origin: border-box;
+					background-clip: content-box, border-box;
 				}
 
 				:hover {
@@ -101,10 +104,8 @@ const About = (props) => {
 	return (
 		<Section title={"About"} refs={props.refs}>
 			<Text>
-				결과물을 시연하고 설명해보면서 느낀 점은<br/>
-				서비스 그 자체의 디자인과 UI/UX가 더 많은 뜻을 전한다는 것이었습니다.<br/>
 				사용자는 서비스와의 첫 만남부터 이용을 마치는 순간까지 프론트엔드와 소통합니다.<br/>
-				프론트엔드가 없다면 서비스는 그 가치를 사용자에게 전할 수 없을 것입니다.<br/>
+				프론트엔드가 없다면 서비스는 그 가치를 사용자에게 알릴 수 없을 것입니다.<br/>
 				저는 <span>서비스의 가치</span>를 온전히 전해줄 수 있는 프론트엔드 개발자가 되기 위해 노력하겠습니다.
 			</Text>
 			<Timeline>
