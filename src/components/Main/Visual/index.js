@@ -2,6 +2,7 @@ import styled, {keyframes} from "styled-components";
 import wing from "../../../images/wing.svg";
 import arrow_down from "../../../images/arrow_down.png";
 import MediaQuery from "../../../hooks/MediaQuery";
+import {useEffect, useRef, useState} from "react";
 
 const WingKeyframes = keyframes`
 	from {
@@ -20,84 +21,118 @@ const Container = styled.div`
 	height: 100vh;
 	position: relative;
 	background-color: #e5e525;
-	overflow: hidden;
-
+	
 	> .container-1320 {
 		width: 100vw;
 		max-width: 1320px;
 		height: 100vh;
-		margin: 1px auto;
+		padding: 0 40px;
 		display: inline-block;
 		position: relative;
-	}
 
-	${`@media ${MediaQuery(3)}`} {
-		> .container-1320 {
-			padding: 0 40px;
+		> .text-container {
+			> .main {
+				font-size: 70px;
+				font-weight: 800;
+			}
+
+			> .sub {
+				margin-top: 50px;
+				font-size: 30px;
+				line-height: calc(50 / 30);
+				font-weight: 500;
+			}
+		}
+
+		> .arrow {
+			height: 80px;
+			margin: 0 auto;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 40px;
+			cursor: pointer;
+			transition: 0.3s;
+
+			:hover {
+				transform: translateY(-10px);
+			}
 		}
 	}
 
-	${`@media ${MediaQuery(2)}`} {
-
+	::after {
+		content: "";
+		width: 30vw;
+		height: 30vw;
+		position: absolute;
+		margin: auto 0;
+		left: calc(${props => props.wingLeft}px);
+		top: 0;
+		bottom: 0;
+		transform-origin: 0 50%;
+		transition: 1s ease transform;
+		background-image: url(${wing});
+		background-repeat: no-repeat;
+		animation: ${WingKeyframes} 1s ease 1 forwards;
+		pointer-events: none;
 	}
 
-	${`@media ${MediaQuery(1)}`} {
+
+	${`@media ${MediaQuery(3)}`} {
 		> .container-1320 {
-			padding: 0 40px;
+			padding: 150px 40px;
+			box-sizing: border-box;
 
-			> .text_container {
-				width: max-content;
-				margin-top: calc(110px + 20vh);
-				text-align: left;
-
-				.main {
-					font-size: 70px;
-					font-weight: 800;
+			> .text-container {
+				> .main {
+					font-size: 40px;
 				}
 
-				.sub {
-					margin-top: 50px;
-					font-size: 30px;
-					line-height: calc(50 / 30);
-					font-weight: 500;
+				> .sub {
+					font-size: 16px;
 				}
 			}
 			
 			> .arrow {
 				height: 80px;
-				margin: 0 auto;
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				cursor: pointer;
-				transition: 0.3s;
-				
-				:hover {
-					transform: translateY(-10px);
-				}
 			}
+		}
 
-			::after {
-				content: "";
-				width: 600px;
-				height: 600px;
-				position: absolute;
-				margin: auto 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				transform-origin: 0 50%;
-				transition: 1s ease;
-				background-image: url(${wing});
-				background-repeat: no-repeat;
-				animation: ${WingKeyframes} 1s ease 1 forwards;
+		::after {
+			margin: auto;
+			left: 0;
+			right: 0;
+			top: ${props => props.wingTop}px;
+			bottom: 160px;
+			transform-origin: 0 0;
+		}
+	}
+
+	${`@media ${MediaQuery(2)}`} {
+		> .container-1320 {
+			width: 100vw;
+			padding: 0 40px;
+			margin-top: 110px;
+			box-sizing: border-box;
+		}
+	}
+
+	${`@media ${MediaQuery(1)}`} {
+		> .container-1320 {
+			> .text-container {
+				width: max-content;
+				margin-top: calc(110px + 20vh);
+				text-align: left;
 			}
 		}
 	}
 `;
 
 const Visual = (props) => {
+	const textRef = useRef();
+	const [wingLeft, setWingLeft] = useState();
+	const [wingTop, setWingTop] = useState();
+	
 	const onArrowClick = () => {
 		window.scrollTo({
 			top: props.refs.current[0].current.getBoundingClientRect().top + window.scrollY - 110,
@@ -105,10 +140,22 @@ const Visual = (props) => {
 		});
 	}
 	
+	useEffect(() => {
+		if (textRef.current) {
+			setWingLeft(textRef.current.getBoundingClientRect().right + 80);
+			setWingTop(textRef.current.getBoundingClientRect().bottom + 40);
+			
+			document.body.onresize = () => {
+				setWingLeft(textRef.current.getBoundingClientRect().right + 80);
+				setWingTop(textRef.current.getBoundingClientRect().bottom + 40);
+			}
+		}
+	}, []);
+	
 	return (
-		<Container>
+		<Container wingLeft={wingLeft} wingTop={wingTop}>
 			<div className={"container-1320"}>
-				<div className={"text_container"}>
+				<div className={"text-container"} ref={textRef}>
 					<div className={"main"}>
 						프론트엔드 개발자<br/>
 						방민입니다.
