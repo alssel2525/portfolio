@@ -21,7 +21,7 @@ const Container = styled.div`
 	height: 100vh;
 	position: relative;
 	background-color: #e5e525;
-	
+
 	> .container-1320 {
 		width: 100vw;
 		max-width: 1320px;
@@ -92,28 +92,31 @@ const Container = styled.div`
 					font-size: 16px;
 				}
 			}
-			
+
 			> .arrow {
 				height: 80px;
 			}
 		}
 
 		::after {
+			width: 40vw;
+			height: 40vw;
 			margin: auto;
 			left: 0;
 			right: 0;
 			top: ${props => props.wingTop}px;
-			bottom: 160px;
-			transform-origin: 0 0;
+			bottom: 240px;
 		}
 	}
 
 	${`@media ${MediaQuery(2)}`} {
 		> .container-1320 {
-			width: 100vw;
-			padding: 0 40px;
-			margin-top: 110px;
+			padding: 150px 40px;
 			box-sizing: border-box;
+		}
+		
+		::after {
+			display: none;
 		}
 	}
 
