@@ -56,6 +56,7 @@ const TimeEvent = styled.div`
 
 				:hover {
 					transform: translateY(-5px);
+					text-decoration: underline #2525e5 3px;
 					
 					::before {
 						animation-play-state: paused;
@@ -66,6 +67,12 @@ const TimeEvent = styled.div`
 	}}
 	
 	${`@media ${MediaQuery(3)}`} {
+		font-size: 16px;
+		
+		> span {
+			font-size: 12px;
+		}
+		
 		:nth-child(2n) {
 			margin-left: 50vw;
 
@@ -99,7 +106,7 @@ const Timeline = styled.div`
 
 	::before {
 		content: "";
-		width: 1050px;
+		width: 75%;
 		height: 35px;
 		position: absolute;
 		top: -100px;
