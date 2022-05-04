@@ -1,5 +1,6 @@
 import styled, {css, keyframes} from "styled-components";
 import Section from "../Section";
+import MediaQuery from "../../../hooks/MediaQuery";
 
 
 const MovingUpDownKeyframes = keyframes`
@@ -63,6 +64,28 @@ const TimeEvent = styled.div`
 			`
 		}
 	}}
+	
+	${`@media ${MediaQuery(3)}`} {
+		:nth-child(2n) {
+			margin-left: 50vw;
+
+			::before {
+				top: 0;
+				bottom: 0;
+				left: -50vw;
+			}
+		}
+		
+		:not(:nth-child(2n)) {
+			margin-right: 50vw;
+
+			::before {
+				top: 0;
+				bottom: 0;
+				right: -50vw;
+			}
+		}
+	}
 `
 
 const Timeline = styled.div`
@@ -82,6 +105,24 @@ const Timeline = styled.div`
 		top: -100px;
 		border-bottom: 2px dashed #333333;
 	}
+	
+	${`@media ${MediaQuery(3)}`} {
+		margin-top: 50px;
+		flex-direction: column;
+		align-items: center;
+		
+		> *:not(:first-child) {
+			margin-top: 50px;
+		}
+		
+		::before {
+			width: 1px;
+			height: 90%;
+			top: 0;
+			border-left: 2px dashed #333333;
+			border-bottom: none;
+		}
+	}
 `;
 
 const Text = styled.div`
@@ -93,14 +134,17 @@ const Text = styled.div`
 
 	> span {
 		font-weight: 500;
-		background: linear-gradient(20deg, #2525e5, #151595);
+		background: linear-gradient(20deg, #2525e5, #752575);
 		-webkit-background-clip: text;
 		color: transparent;
+	}
+	
+	${`@media ${MediaQuery(3)}`} {
+		font-size: 18px;
 	}
 `
 
 const About = (props) => {
-	
 	return (
 		<Section title={"About"} refs={props.refs}>
 			<Text>

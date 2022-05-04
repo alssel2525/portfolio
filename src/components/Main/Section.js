@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import MediaQuery from "../../hooks/MediaQuery";
 
 const Container = styled.div`
-	width: 1364px;
-	margin: 110px 278px;
+	max-width: 1320px;
+	margin: 110px auto;
+	padding: 0 40px;
 	position: relative;
 	text-align: left;
+	box-sizing: border-box;
 
 	> .title {
 		width: max-content;
@@ -24,6 +27,13 @@ const Container = styled.div`
 			margin: 0 auto;
 			background: #e5e525;
 		}
+	}
+	
+	${`@media ${MediaQuery(3)}, ${MediaQuery(2)}`} {
+		width: 100vw;
+		padding: 40px;
+		margin: 0;
+		box-sizing: border-box;
 	}
 `;
 
