@@ -3,6 +3,7 @@ import wing from "../../../images/wing.svg";
 import arrow_down from "../../../images/arrow_down.png";
 import MediaQuery from "../../../hooks/MediaQuery";
 import {useEffect, useRef, useState} from "react";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
 const WingKeyframes = keyframes`
 	from {
@@ -135,10 +136,13 @@ const Visual = (props) => {
 	const textRef = useRef();
 	const [wingLeft, setWingLeft] = useState();
 	const [wingTop, setWingTop] = useState();
+	const matchesPC = useMediaQuery(MediaQuery(1));
 	
 	const onArrowClick = () => {
+		const headerHeight = matchesPC ? 110 : 70;
+		
 		window.scrollTo({
-			top: props.refs.current[0].current.getBoundingClientRect().top + window.scrollY - 110,
+			top: props.refs.current[0].current.getBoundingClientRect().top + window.scrollY - headerHeight,
 			behavior: "smooth",
 		});
 	}

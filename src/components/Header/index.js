@@ -4,6 +4,7 @@ import profile from "../../images/프사.svg";
 import menu from "../../images/menu.svg";
 import close from "../../images/close_FILL0_wght700_GRAD0_opsz40.svg";
 import {useState} from "react";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 
 const Container = styled.header`
@@ -131,10 +132,13 @@ const Container = styled.header`
 
 const Header = (props) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const matchesPC = useMediaQuery(MediaQuery(1));
 	
 	const ScrollToSection = (index) => {
+		const headerHeight = matchesPC ? 110 : 70;
+		
 		window.scrollTo({
-			top: props.refs.current[index].current.getBoundingClientRect().top + window.scrollY - 110,
+			top: props.refs.current[index].current.getBoundingClientRect().top + window.scrollY - headerHeight,
 			behavior: "smooth",
 		})
 	}
