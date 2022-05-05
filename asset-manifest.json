@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9d5dbb0a.css",
+    "main.js": "/static/js/main.87226346.js",
+    "static/media/GmarketSansTTFBold.ttf": "/static/media/GmarketSansTTFBold.69428064ef8eee25be33.ttf",
+    "static/media/GmarketSansTTFMedium.ttf": "/static/media/GmarketSansTTFMedium.d4bac6b182bed73c9375.ttf",
+    "static/media/GmarketSansTTFLight.ttf": "/static/media/GmarketSansTTFLight.efaa8f19ead1555b1c39.ttf",
+    "static/media/djbm.jpg": "/static/media/djbm.40739f66f5e306e881da.jpg",
+    "static/media/portfolio.jpg": "/static/media/portfolio.e3d9ddc86760442abdd3.jpg",
+    "static/media/wing.svg": "/static/media/wing.f16965c42de9071c2cfffc54aabd301e.svg",
+    "static/media/envelope.svg": "/static/media/envelope.2f46289b67dea1285f157e28f4d33ba8.svg",
+    "index.html": "/index.html",
+    "static/media/프사.svg": "/static/media/프사.63a163756f5fced7cbfd20fe95125aa8.svg",
+    "static/media/phone.svg": "/static/media/phone.7cf4a5742f3a62b0a7c70c5fd118be9b.svg",
+    "static/media/close_FILL0_wght700_GRAD0_opsz40.svg": "/static/media/close_FILL0_wght700_GRAD0_opsz40.2f49e106fa6f69df6a0cb72e913a9718.svg",
+    "static/media/menu.svg": "/static/media/menu.efbef32e58863bf700f6ca00972db9d6.svg",
+    "main.9d5dbb0a.css.map": "/static/css/main.9d5dbb0a.css.map",
+    "main.87226346.js.map": "/static/js/main.87226346.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d5dbb0a.css",
+    "static/js/main.87226346.js"
+  ]
+}
