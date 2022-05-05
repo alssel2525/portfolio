@@ -54,6 +54,7 @@ const Projects = (props) => {
 						<div className={"description"}>
 							styled-components로 컴포넌트별 디자인<br/>
 							커서 위치에 따른 이미지 애니메이션 구현<br/>
+							모바일 대응 반응형 웹 구현<br/>
 							Github Pages로 배포
 						</div>
 						<div className={"buttons"}>
