@@ -9,10 +9,8 @@ const ItemContainer = styled.div`
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	
-	> :not(:first-child) {
-		margin-left: 30px;
-	}
+	flex-wrap: wrap;
+	gap: 30px;
 `
 
 const Item = styled.div`
