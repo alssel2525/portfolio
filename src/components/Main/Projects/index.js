@@ -57,8 +57,8 @@ const Projects = (props) => {
 							Github Pages로 배포
 						</div>
 						<div className={"buttons"}>
-							<PageButton link={"https://alssel2525.github.io/djbm_clone/"}>Link</PageButton>
-							<PageButton link={"https://github.com/alssel2525/djbm_clone"}
+							<PageButton link={"https://alssel2525.github.io/portfolio/"}>Link</PageButton>
+							<PageButton link={"https://github.com/alssel2525/portfolio"}
 								type={"github"}>Github</PageButton>
 						</div>
 					</div>
