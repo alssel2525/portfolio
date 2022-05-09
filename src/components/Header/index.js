@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MediaQuery from "../../hooks/MediaQuery";
+import MediaQuery, {BREAKPOINTS} from "../../hooks/MediaQuery";
 import profile from "../../images/프사.svg";
 import menu from "../../images/menu.svg";
 import close from "../../images/close_FILL0_wght700_GRAD0_opsz40.svg";
@@ -78,7 +78,7 @@ const Container = styled.header`
 		}
 	}
 
-	${`@media ${MediaQuery(3)}, ${MediaQuery(2)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}, ${MediaQuery(BREAKPOINTS.BREAKPOINT_TABLET)}`} {
 		height: 70px;
 
 		> .container-1580 {
@@ -116,7 +116,7 @@ const Container = styled.header`
 		}
 	}
 
-	${`@media ${MediaQuery(1)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_PC)}`} {
 		> .container-1580 {
 			width: 100vw;
 			max-width: 1580px;
@@ -132,7 +132,7 @@ const Container = styled.header`
 
 const Header = ({sectionRefs}) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const matchesPC = useMediaQuery(MediaQuery(1));
+	const matchesPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
 	
 	const ScrollToSection = (index) => {
 		const headerHeight = matchesPC ? 110 : 70;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MediaQuery from "../../hooks/MediaQuery";
+import MediaQuery, {BREAKPOINTS} from "../../hooks/MediaQuery";
 
 const Container = styled.div`
 	max-width: 1320px;
@@ -29,7 +29,7 @@ const Container = styled.div`
 		}
 	}
 	
-	${`@media ${MediaQuery(3)}, ${MediaQuery(2)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}, ${MediaQuery(BREAKPOINTS.BREAKPOINT_TABLET)}`} {
 		width: 100vw;
 		padding: 40px;
 		margin: 0;

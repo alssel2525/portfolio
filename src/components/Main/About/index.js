@@ -1,6 +1,6 @@
 import styled, {css, keyframes} from "styled-components";
 import Section from "../Section";
-import MediaQuery from "../../../hooks/MediaQuery";
+import MediaQuery, {BREAKPOINTS} from "../../../hooks/MediaQuery";
 
 
 const MovingUpDownKeyframes = keyframes`
@@ -66,7 +66,7 @@ const TimeEvent = styled.div`
 		}
 	}}
 	
-	${`@media ${MediaQuery(3)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}`} {
 		font-size: 16px;
 		
 		> span {
@@ -113,7 +113,7 @@ const Timeline = styled.div`
 		border-bottom: 2px dashed #333333;
 	}
 	
-	${`@media ${MediaQuery(3)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}`} {
 		margin-top: 50px;
 		flex-direction: column;
 		align-items: center;
@@ -146,7 +146,7 @@ const Text = styled.div`
 		color: transparent;
 	}
 	
-	${`@media ${MediaQuery(3)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}`} {
 		font-size: 18px;
 	}
 `

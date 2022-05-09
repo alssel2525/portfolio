@@ -6,7 +6,7 @@ import djbm from "../../../images/djbm.jpg";
 import portfolio from "../../../images/portfolio.jpg";
 import styled, {css} from "styled-components";
 import useMediaQuery from "../../../hooks/useMediaQuery";
-import MediaQuery from "../../../hooks/MediaQuery";
+import MediaQuery, {BREAKPOINTS} from "../../../hooks/MediaQuery";
 
 
 const ProjectContainer = styled.div`
@@ -23,7 +23,7 @@ const ProjectContainer = styled.div`
 `
 
 const Projects = ({refs}) => {
-	const isPC = useMediaQuery(MediaQuery(1));
+	const isPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
 	
 	return (
 		<Section title={"Projects"} refs={refs}>

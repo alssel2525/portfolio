@@ -1,7 +1,7 @@
 import styled, {keyframes} from "styled-components";
 import wing from "../../../images/wing.svg";
 import arrow_down from "../../../images/arrow_down.png";
-import MediaQuery from "../../../hooks/MediaQuery";
+import MediaQuery, {BREAKPOINTS} from "../../../hooks/MediaQuery";
 import {useEffect, useRef, useState} from "react";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
@@ -80,7 +80,7 @@ const Container = styled.div`
 	}
 
 
-	${`@media ${MediaQuery(3)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}`} {
 		> .container-1320 {
 			padding: 150px 40px;
 			box-sizing: border-box;
@@ -111,7 +111,7 @@ const Container = styled.div`
 		}
 	}
 
-	${`@media ${MediaQuery(2)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_TABLET)}`} {
 		> .container-1320 {
 			padding: 150px 40px;
 			box-sizing: border-box;
@@ -122,7 +122,7 @@ const Container = styled.div`
 		}
 	}
 
-	${`@media ${MediaQuery(1)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_PC)}`} {
 		> .container-1320 {
 			> .text-container {
 				width: max-content;
@@ -137,7 +137,7 @@ const Visual = ({nextSectionRef}) => {
 	const textRef = useRef();
 	const [wingLeft, setWingLeft] = useState();
 	const [wingTop, setWingTop] = useState();
-	const matchesPC = useMediaQuery(MediaQuery(1));
+	const matchesPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
 	
 	const onArrowClick = () => {
 		const headerHeight = matchesPC ? 110 : 70;

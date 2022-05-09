@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
 import useMediaQuery from "../../../../hooks/useMediaQuery";
-import MediaQuery from "../../../../hooks/MediaQuery";
+import MediaQuery, {BREAKPOINTS} from "../../../../hooks/MediaQuery";
 
 const Container = styled.div`
 	width: 100%;
@@ -68,7 +68,7 @@ const Container = styled.div`
 		}
 	}
 	
-	${`@media ${MediaQuery(3)}, ${MediaQuery(2)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}, ${MediaQuery(BREAKPOINTS.BREAKPOINT_TABLET)}`} {
 		width: 100%;
 		height: max-content;
 		flex-direction: column;
@@ -113,7 +113,7 @@ const Container = styled.div`
 		}
 	}
 	
-	${`@media ${MediaQuery(2)}`} {
+	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_TABLET)}`} {
 		> .content {
 			> .title {
 				font-size: 30px;
@@ -131,7 +131,7 @@ const Container = styled.div`
 `;
 
 const Project = (props) => {
-	const isPC = useMediaQuery(MediaQuery(1));
+	const isPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
 	const [ref, isIntersecting] = useIntersectionObserver({
 		threshold: 0.5,
 		rootMargin: "100% 0px 0px 0px",
