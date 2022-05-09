@@ -21,6 +21,7 @@ const Container = styled.div`
 	width: 100vw;
 	height: 100vh;
 	position: relative;
+	text-align: center;
 	background-color: #e5e525;
 
 	> .container-1320 {
