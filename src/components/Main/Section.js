@@ -37,11 +37,11 @@ const Container = styled.div`
 	}
 `;
 
-const Section = (props) => {
+const Section = ({refs, title, children}) => {
 	return (
-		<Container ref={props.refs}>
-			<div className={"title"}>{props.title}</div>
-			{props.children}
+		<Container ref={refs}>
+			<div className={"title"}>{title}</div>
+			{children}
 		</Container>
 	)
 };
