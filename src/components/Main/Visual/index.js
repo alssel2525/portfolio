@@ -133,7 +133,7 @@ const Container = styled.div`
 	}
 `;
 
-const Visual = (props) => {
+const Visual = ({nextSectionRef}) => {
 	const textRef = useRef();
 	const [wingLeft, setWingLeft] = useState();
 	const [wingTop, setWingTop] = useState();
@@ -143,7 +143,7 @@ const Visual = (props) => {
 		const headerHeight = matchesPC ? 110 : 70;
 		
 		window.scrollTo({
-			top: props.refs.current[0].current.getBoundingClientRect().top + window.scrollY - headerHeight,
+			top: nextSectionRef.current.getBoundingClientRect().top + window.scrollY - headerHeight,
 			behavior: "smooth",
 		});
 	}

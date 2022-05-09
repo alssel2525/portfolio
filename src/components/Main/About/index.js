@@ -151,9 +151,9 @@ const Text = styled.div`
 	}
 `
 
-const About = (props) => {
+const About = ({refs}) => {
 	return (
-		<Section title={"About"} refs={props.refs}>
+		<Section title={"About"} refs={refs}>
 			<Text>
 				사용자는 서비스와의 첫 만남부터 이용을 마치는 순간까지 프론트엔드와 소통합니다.<br/>
 				프론트엔드가 없다면 서비스는 그 가치를 사용자에게 알릴 수 없을 것입니다.<br/>

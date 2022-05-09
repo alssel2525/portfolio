@@ -22,11 +22,11 @@ const ProjectContainer = styled.div`
 	}}
 `
 
-const Projects = (props) => {
+const Projects = ({refs}) => {
 	const isPC = useMediaQuery(MediaQuery(1));
 	
 	return (
-		<Section title={"Projects"} refs={props.refs}>
+		<Section title={"Projects"} refs={refs}>
 			<ProjectContainer isPC={isPC}>
 				<Project>
 					<TranslatingImage src={djbm} alt={"대전 바이오메디컬 규제자유특구 클론 코딩"}/>

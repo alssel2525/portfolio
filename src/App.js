@@ -8,8 +8,8 @@ function App() {
 	
 	return (
 		<>
-			<Header refs={sectionRefs}/>
-			<Main refs={sectionRefs}/>
+			<Header sectionRefs={sectionRefs}/>
+			<Main sectionRefs={sectionRefs}/>
 			<Footer/>
 		</>
 	);

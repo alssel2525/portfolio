@@ -43,13 +43,13 @@ const Item = styled.div`
 	}
 `
 
-const Contact = (props) => {
+const Contact = ({refs}) => {
 	const openLink = (url) => {
 		window.open(url, "_blank");
 	}
 	
 	return (
-		<Section title={"Contact"} refs={props.refs}>
+		<Section title={"Contact"} refs={refs}>
 			<ItemContainer>
 				<Item onClick={() => openLink("mailto:alssel2525@naver.com")}>
 					<img src={envelope} alt={"이메일"}/>

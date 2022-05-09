@@ -3,13 +3,13 @@ import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 
-const Main = (props) => {
+const Main = ({sectionRefs}) => {
 	return (
 		<main>
-			<Visual refs={props.refs}/>
-			<About refs={props.refs.current[0]}/>
-			<Projects refs={props.refs.current[1]}/>
-			<Contact refs={props.refs.current[2]}/>
+			<Visual nextSectionRef={sectionRefs.current[0]}/>
+			<About refs={sectionRefs.current[0]}/>
+			<Projects refs={sectionRefs.current[1]}/>
+			<Contact refs={sectionRefs.current[2]}/>
 		</main>
 	)
 };

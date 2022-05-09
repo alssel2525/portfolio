@@ -130,7 +130,7 @@ const Container = styled.header`
 	}
 `;
 
-const Header = (props) => {
+const Header = ({sectionRefs}) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const matchesPC = useMediaQuery(MediaQuery(1));
 	
@@ -138,7 +138,7 @@ const Header = (props) => {
 		const headerHeight = matchesPC ? 110 : 70;
 		
 		window.scrollTo({
-			top: props.refs.current[index].current.getBoundingClientRect().top + window.scrollY - headerHeight,
+			top: sectionRefs.current[index].current.getBoundingClientRect().top + window.scrollY - headerHeight,
 			behavior: "smooth",
 		})
 	}
