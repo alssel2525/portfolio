@@ -137,10 +137,10 @@ const Visual = ({nextSectionRef}) => {
 	const textRef = useRef();
 	const [wingLeft, setWingLeft] = useState();
 	const [wingTop, setWingTop] = useState();
-	const matchesPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
+	const isPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
 	
-	const onArrowClick = () => {
-		const headerHeight = matchesPC ? 110 : 70;
+	const scrollToNextSection = () => {
+		const headerHeight = isPC ? 110 : 70;
 		
 		window.scrollTo({
 			top: nextSectionRef.current.getBoundingClientRect().top + window.scrollY - headerHeight,
@@ -174,7 +174,7 @@ const Visual = ({nextSectionRef}) => {
 						어디든 날아갈 서비스를 위해 노력하겠습니다.
 					</div>
 				</div>
-				<img src={arrow_down} alt={"다음 페이지로 스크롤하기"} onClick={onArrowClick} className={"arrow"}/>
+				<img src={arrow_down} alt={"다음 페이지로 스크롤"} onClick={scrollToNextSection} className={"arrow"}/>
 			</div>
 		</Container>
 	)
