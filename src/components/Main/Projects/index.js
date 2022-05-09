@@ -28,7 +28,7 @@ const Projects = ({refs}) => {
 	return (
 		<Section title={"Projects"} refs={refs}>
 			<ProjectContainer isPC={isPC}>
-				<Project>
+				<Project isPC={isPC}>
 					<TranslatingImage src={djbm} alt={"대전 바이오메디컬 규제자유특구 클론 코딩"}/>
 					<div className={"content"}>
 						<div className={"title"}>대전 바이오메디컬 규제자유특구 홈페이지 클론 코딩</div>

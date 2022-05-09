@@ -1,6 +1,5 @@
 import styled, {css} from "styled-components";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
-import useMediaQuery from "../../../../hooks/useMediaQuery";
 import MediaQuery, {BREAKPOINTS} from "../../../../hooks/MediaQuery";
 
 const Container = styled.div`
@@ -130,8 +129,7 @@ const Container = styled.div`
 	}
 `;
 
-const Project = (props) => {
-	const isPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
+const Project = ({children, isPC}) => {
 	const [ref, isIntersecting] = useIntersectionObserver({
 		threshold: 0.5,
 		rootMargin: "100% 0px 0px 0px",
@@ -139,7 +137,7 @@ const Project = (props) => {
 	
 	return (
 		<Container ref={ref} isIntersecting={isPC ? isIntersecting : true} isPC={isPC}>
-			{props.children}
+			{children}
 		</Container>
 	)
 };
