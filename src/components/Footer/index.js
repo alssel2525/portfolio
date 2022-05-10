@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+
+const Footer = () => {
+	return (
+		<Container>
+			Made By Bang Min
+		</Container>
+	)
+};
+
+export default Footer;
+
+
 const Container = styled.footer`
     width: 100vw;
 	height: 60px;
@@ -11,13 +23,3 @@ const Container = styled.footer`
 	color: #bbbbbb;
 	font-size: 10px;
 `;
-
-const Footer = () => {
-	return (
-		<Container>
-			Made By Bang Min
-		</Container>
-	)
-};
-
-export default Footer;

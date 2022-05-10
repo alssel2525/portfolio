@@ -7,6 +7,48 @@ import {useState} from "react";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 
+const Header = ({sectionRefs}) => {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const matchesPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
+	
+	const ScrollToSection = (index) => {
+		const headerHeight = matchesPC ? 110 : 70;
+		
+		window.scrollTo({
+			top: sectionRefs.current[index].current.getBoundingClientRect().top + window.scrollY - headerHeight,
+			behavior: "smooth",
+		})
+	}
+	
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		})
+	}
+	
+	const toggleIsMenuOpen = () => {
+		setIsMenuOpen(prevState => !prevState);
+	}
+	
+	return (
+		<Container>
+			<div className={"container-1580"}>
+				<img src={profile} alt={"방민"} className={"profile"} onClick={scrollToTop}/>
+				<ul className={isMenuOpen ? "active" : ""}>
+					<li onClick={() => ScrollToSection(0)}>About</li>
+					<li onClick={() => ScrollToSection(1)}>Projects</li>
+					<li onClick={() => ScrollToSection(2)}>Contact</li>
+				</ul>
+				<img src={isMenuOpen ? close : menu} alt={"메뉴"} className={"hamburger"} onClick={toggleIsMenuOpen}/>
+			</div>
+		</Container>
+	)
+};
+
+export default Header;
+
+
 const Container = styled.header`
 	width: 100vw;
 	height: 110px;
@@ -129,44 +171,3 @@ const Container = styled.header`
 		}
 	}
 `;
-
-const Header = ({sectionRefs}) => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const matchesPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
-	
-	const ScrollToSection = (index) => {
-		const headerHeight = matchesPC ? 110 : 70;
-		
-		window.scrollTo({
-			top: sectionRefs.current[index].current.getBoundingClientRect().top + window.scrollY - headerHeight,
-			behavior: "smooth",
-		})
-	}
-	
-	const scrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		})
-	}
-	
-	const toggleIsMenuOpen = () => {
-		setIsMenuOpen(prevState => !prevState);
-	}
-	
-	return (
-		<Container>
-			<div className={"container-1580"}>
-				<img src={profile} alt={"방민"} className={"profile"} onClick={scrollToTop}/>
-				<ul className={isMenuOpen ? "active" : ""}>
-					<li onClick={() => ScrollToSection(0)}>About</li>
-					<li onClick={() => ScrollToSection(1)}>Projects</li>
-					<li onClick={() => ScrollToSection(2)}>Contact</li>
-				</ul>
-				<img src={isMenuOpen ? close : menu} alt={"메뉴"} className={"hamburger"} onClick={toggleIsMenuOpen}/>
-			</div>
-		</Container>
-	)
-};
-
-export default Header;

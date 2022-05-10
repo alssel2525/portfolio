@@ -4,44 +4,6 @@ import envelope from "../../../images/envelope.svg";
 import phone from "../../../images/phone.svg";
 import github from "../../../images/GitHub-Mark-32px.png";
 
-const ItemContainer = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 30px;
-`
-
-const Item = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	font-size: 20px;
-	font-weight: 500;
-	transition: 0.3s;
-
-	${props => {
-		if (props.onClick) return css`
-			cursor: pointer;
-			border-bottom-color: #e5e525;
-			border-bottom-width: 3px;
-			border-bottom-style: solid;
-			
-			:hover {
-				border-bottom-color: #2525e5;
-				animation: none;
-				transform: translateY(-5px);
-			}
-		`;
-	}}
-	
-	> img {
-		height: 20px;
-		margin-right: 12px;
-	}
-`
 
 const Contact = ({refs}) => {
 	const openLink = (url) => {
@@ -69,3 +31,43 @@ const Contact = ({refs}) => {
 };
 
 export default Contact;
+
+
+const ItemContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 30px;
+`
+
+const Item = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 500;
+	transition: 0.3s;
+
+	${props => {
+		if (props.onClick) return css`
+			cursor: pointer;
+			border-bottom-color: #e5e525;
+			border-bottom-width: 3px;
+			border-bottom-style: solid;
+
+			:hover {
+				border-bottom-color: #2525e5;
+				animation: none;
+				transform: translateY(-5px);
+			}
+		`;
+	}}
+	
+	> img {
+		height: 20px;
+		margin-right: 12px;
+	}
+`

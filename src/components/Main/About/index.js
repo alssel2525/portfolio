@@ -3,14 +3,49 @@ import Section from "../Section";
 import MediaQuery, {BREAKPOINTS} from "../../../hooks/MediaQuery";
 
 
+const About = ({refs}) => {
+	return (
+		<Section title={"About"} refs={refs}>
+			<Text>
+				사용자는 서비스와의 첫 만남부터 이용을 마치는 순간까지 프론트엔드와 소통합니다.<br/>
+				프론트엔드가 없다면 서비스는 그 가치를 사용자에게 알릴 수 없을 것입니다.<br/>
+				저는 <span>서비스의 가치</span>를 온전히 전해줄 수 있는 프론트엔드 개발자가 되기 위해 노력하겠습니다.
+			</Text>
+			<Timeline>
+				<TimeEvent>
+					1999.06.17 미필 男<br/>
+					<span>(보충역 산업기능요원 가능)</span>
+				</TimeEvent>
+				<TimeEvent>
+					2019 S-School Project<br/>
+					<span>참여</span>
+				</TimeEvent>
+				<TimeEvent onClick={() => window.open("https://www.joongang.co.kr/article/23949185#home", "_blank")}>
+					NET 챌린지 캠프 시즌 7<br/>
+					<span>금상, 통신사 특별상</span>
+				</TimeEvent>
+				<TimeEvent>
+					서울시립대학교<br/>
+					컴퓨터과학부 졸업
+				</TimeEvent>
+			</Timeline>
+		</Section>
+	)
+};
+
+export default About;
+
+
 const MovingUpDownKeyframes = keyframes`
-	from {}
-	
+	from {
+	}
+
 	50% {
 		transform: translateY(-5px);
 	}
-	
-	to {}
+
+	to {
+	}
 `
 
 const TimeEvent = styled.div`
@@ -57,7 +92,7 @@ const TimeEvent = styled.div`
 				:hover {
 					transform: translateY(-5px);
 					text-decoration: underline #2525e5 3px;
-					
+
 					::before {
 						animation-play-state: paused;
 					}
@@ -68,11 +103,11 @@ const TimeEvent = styled.div`
 	
 	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}`} {
 		font-size: 16px;
-		
+
 		> span {
 			font-size: 12px;
 		}
-		
+
 		:nth-child(2n) {
 			margin-left: 50vw;
 
@@ -82,7 +117,7 @@ const TimeEvent = styled.div`
 				left: -50vw;
 			}
 		}
-		
+
 		:not(:nth-child(2n)) {
 			margin-right: 50vw;
 
@@ -112,16 +147,16 @@ const Timeline = styled.div`
 		top: -100px;
 		border-bottom: 2px dashed #333333;
 	}
-	
+
 	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}`} {
 		margin-top: 50px;
 		flex-direction: column;
 		align-items: center;
-		
+
 		> *:not(:first-child) {
 			margin-top: 50px;
 		}
-		
+
 		::before {
 			width: 1px;
 			height: 90%;
@@ -145,40 +180,8 @@ const Text = styled.div`
 		-webkit-background-clip: text;
 		color: transparent;
 	}
-	
+
 	${`@media ${MediaQuery(BREAKPOINTS.BREAKPOINT_MOBILE)}`} {
 		font-size: 18px;
 	}
 `
-
-const About = ({refs}) => {
-	return (
-		<Section title={"About"} refs={refs}>
-			<Text>
-				사용자는 서비스와의 첫 만남부터 이용을 마치는 순간까지 프론트엔드와 소통합니다.<br/>
-				프론트엔드가 없다면 서비스는 그 가치를 사용자에게 알릴 수 없을 것입니다.<br/>
-				저는 <span>서비스의 가치</span>를 온전히 전해줄 수 있는 프론트엔드 개발자가 되기 위해 노력하겠습니다.
-			</Text>
-			<Timeline>
-				<TimeEvent>
-					1999.06.17 미필 男<br/>
-					<span>(보충역 산업기능요원 가능)</span>
-				</TimeEvent>
-				<TimeEvent>
-					2019 S-School Project<br/>
-					<span>참여</span>
-				</TimeEvent>
-				<TimeEvent onClick={() => window.open("https://www.joongang.co.kr/article/23949185#home", "_blank")}>
-					NET 챌린지 캠프 시즌 7<br/>
-					<span>금상, 통신사 특별상</span>
-				</TimeEvent>
-				<TimeEvent>
-					서울시립대학교<br/>
-					컴퓨터과학부 졸업
-				</TimeEvent>
-			</Timeline>
-		</Section>
-	)
-};
-
-export default About;

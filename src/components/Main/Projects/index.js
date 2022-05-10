@@ -9,19 +9,6 @@ import useMediaQuery from "../../../hooks/useMediaQuery";
 import MediaQuery, {BREAKPOINTS} from "../../../hooks/MediaQuery";
 
 
-const ProjectContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-
-	${props => {
-		return !props.isPC && css`
-			> *:not(:first-child) {
-				margin-top: 120px;
-			}
-		`
-	}}
-`
-
 const Projects = ({refs}) => {
 	const isPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
 	
@@ -70,3 +57,17 @@ const Projects = ({refs}) => {
 };
 
 export default Projects;
+
+
+const ProjectContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+
+	${props => {
+	return !props.isPC && css`
+			> *:not(:first-child) {
+				margin-top: 120px;
+			}
+		`
+}}
+`

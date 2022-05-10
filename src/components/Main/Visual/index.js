@@ -5,6 +5,57 @@ import MediaQuery, {BREAKPOINTS} from "../../../hooks/MediaQuery";
 import {useEffect, useRef, useState} from "react";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
+
+const Visual = ({nextSectionRef}) => {
+	const textRef = useRef();
+	const [wingLeft, setWingLeft] = useState();
+	const [wingTop, setWingTop] = useState();
+	const isPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
+	
+	const scrollToNextSection = () => {
+		const headerHeight = isPC ? 110 : 70;
+		
+		window.scrollTo({
+			top: nextSectionRef.current.getBoundingClientRect().top + window.scrollY - headerHeight,
+			behavior: "smooth",
+		});
+	}
+	
+	useEffect(() => {
+		if (textRef.current) {
+			setWingLeft(textRef.current.getBoundingClientRect().right + 80);
+			setWingTop(textRef.current.getBoundingClientRect().bottom + 40);
+			
+			document.body.onresize = () => {
+				setWingLeft(textRef.current.getBoundingClientRect().right + 80);
+				setWingTop(textRef.current.getBoundingClientRect().bottom + 40);
+			}
+		}
+	}, []);
+	
+	return (
+		<Container wingLeft={wingLeft} wingTop={wingTop}>
+			<div className={"container-1320"}>
+				<div className={"text-container"} ref={textRef}>
+					<div className={"main"}>
+						프론트엔드 개발자<br/>
+						방민입니다.
+					</div>
+					<div className={"sub"}>
+						서비스에 있어서 프론트엔드는 어떤 역할일까요?<br/>
+						저는 사용자에게 날아가는 날개라고 생각합니다.<br/>
+						어디든 날아갈 서비스를 위해 노력하겠습니다.
+					</div>
+				</div>
+				<img src={arrow_down} alt={"다음 페이지로 스크롤"} onClick={scrollToNextSection} className={"arrow"}/>
+			</div>
+		</Container>
+	)
+};
+
+export default Visual;
+
+
 const WingKeyframes = keyframes`
 	from {
 		opacity: 0;
@@ -132,52 +183,3 @@ const Container = styled.div`
 		}
 	}
 `;
-
-const Visual = ({nextSectionRef}) => {
-	const textRef = useRef();
-	const [wingLeft, setWingLeft] = useState();
-	const [wingTop, setWingTop] = useState();
-	const isPC = useMediaQuery(MediaQuery(BREAKPOINTS.BREAKPOINT_PC));
-	
-	const scrollToNextSection = () => {
-		const headerHeight = isPC ? 110 : 70;
-		
-		window.scrollTo({
-			top: nextSectionRef.current.getBoundingClientRect().top + window.scrollY - headerHeight,
-			behavior: "smooth",
-		});
-	}
-	
-	useEffect(() => {
-		if (textRef.current) {
-			setWingLeft(textRef.current.getBoundingClientRect().right + 80);
-			setWingTop(textRef.current.getBoundingClientRect().bottom + 40);
-			
-			document.body.onresize = () => {
-				setWingLeft(textRef.current.getBoundingClientRect().right + 80);
-				setWingTop(textRef.current.getBoundingClientRect().bottom + 40);
-			}
-		}
-	}, []);
-	
-	return (
-		<Container wingLeft={wingLeft} wingTop={wingTop}>
-			<div className={"container-1320"}>
-				<div className={"text-container"} ref={textRef}>
-					<div className={"main"}>
-						프론트엔드 개발자<br/>
-						방민입니다.
-					</div>
-					<div className={"sub"}>
-						서비스에 있어서 프론트엔드는 어떤 역할일까요?<br/>
-						저는 사용자에게 날아가는 날개라고 생각합니다.<br/>
-						어디든 날아갈 서비스를 위해 노력하겠습니다.
-					</div>
-				</div>
-				<img src={arrow_down} alt={"다음 페이지로 스크롤"} onClick={scrollToNextSection} className={"arrow"}/>
-			</div>
-		</Container>
-	)
-};
-
-export default Visual;
